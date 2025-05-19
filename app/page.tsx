@@ -2,6 +2,7 @@
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { useAuthContext } from "@/context/AuthProvider";
+import Link from "next/link";
 import {
   FaGithub,
   FaLinkedin,
@@ -60,7 +61,7 @@ export default function Home() {
 
             <div className="py-4 md:py-6">
               <h2 className="text-4xl font-bold text-gray-800 mb-2 tracking-tight">Welcome back</h2>
-              <p className="text-gray-600 mb-10 text-lg font-light">Let's get you back into your account</p>
+              <p className="text-gray-600 mb-10 text-lg font-light">Let&apos;s get you back into your account</p>
 
               {/* Error message */}
               {error && (
@@ -152,9 +153,9 @@ export default function Home() {
                     </div>
                     <span className="ml-2 group-hover:text-indigo-600 transition-colors duration-300">Remember me</span>
                   </label>
-                  <a href="/forgot-password" className="text-indigo-600 hover:text-indigo-800 font-medium transition-colors hover:underline">
+                  <Link href="/forgot-password" className="text-indigo-600 hover:text-indigo-800 font-medium transition-colors hover:underline">
                     Forgot password?
-                  </a>
+                  </Link>
                 </div>
 
                 {/* Sign In Button */}
@@ -218,8 +219,8 @@ export default function Home() {
           
           <p className="text-gray-600 text-sm text-center mt-6">
             By signing in, you agree to our{" "}
-            <a href="#" className="text-indigo-600 hover:text-indigo-800 hover:underline transition-colors font-medium">Terms of Service</a> and{" "}
-            <a href="#" className="text-indigo-600 hover:text-indigo-800 hover:underline transition-colors font-medium">Privacy Policy</a>
+            <Link href="#" className="text-indigo-600 hover:text-indigo-800 hover:underline transition-colors font-medium">Terms of Service</Link> and{" "}
+            <Link href="#" className="text-indigo-600 hover:text-indigo-800 hover:underline transition-colors font-medium">Privacy Policy</Link>
           </p>
         </main>
       </div>
