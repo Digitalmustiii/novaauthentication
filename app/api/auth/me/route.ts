@@ -1,10 +1,10 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import { db } from "@/lib/db";
 import { getTokenCookie, clearTokenCookie } from "@/lib/cookies";
 import { verifyToken } from "@/lib/auth";
 
-export async function GET(req: Request) {
-  const token = getTokenCookie(req as any);
+export async function GET(req: NextRequest) {
+  const token = getTokenCookie(req);
   if (!token) return NextResponse.json({ user: null }, { status: 200 });
 
   const payload = verifyToken(token);
