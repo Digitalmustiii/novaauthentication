@@ -2,17 +2,16 @@
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { useAuthContext } from "@/context/AuthProvider";
+import Link from "next/link";
 import {
   FaRegEnvelope,
   FaUserAlt,
   FaArrowRight,
   FaRegLightbulb,
   FaCheckCircle,
-  FaAngleRight,
 } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
 import { HiSparkles } from "react-icons/hi";
-import Image from "next/image";
 
 export default function SignupPage() {
   const { signup, error } = useAuthContext();
@@ -221,12 +220,12 @@ export default function SignupPage() {
                   </div>
                   <label htmlFor="terms" className="ml-2 text-xs sm:text-sm text-gray-600">
                     I agree to the{" "}
-                    <a href="#" className="text-indigo-600 hover:text-indigo-800 hover:underline transition-colors font-medium">
+                    <Link href="#" className="text-indigo-600 hover:text-indigo-800 hover:underline transition-colors font-medium">
                       Terms of Service
-                    </a> and{" "}
-                    <a href="#" className="text-indigo-600 hover:text-indigo-800 hover:underline transition-colors font-medium">
+                    </Link> and{" "}
+                    <Link href="#" className="text-indigo-600 hover:text-indigo-800 hover:underline transition-colors font-medium">
                       Privacy Policy
-                    </a>
+                    </Link>
                   </label>
                 </div>
 
@@ -248,9 +247,9 @@ export default function SignupPage() {
 
                 <p className="text-center text-xs sm:text-sm text-gray-600 mt-2 w-full">
                   Already have an account?{" "}
-                  <a href="/" className="text-indigo-600 hover:text-indigo-800 hover:underline font-medium transition-colors">
+                  <Link href="/" className="text-indigo-600 hover:text-indigo-800 hover:underline font-medium transition-colors">
                     Sign in
-                  </a>
+                  </Link>
                 </p>
               </form>
             </div>
