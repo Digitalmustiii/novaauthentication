@@ -1,20 +1,12 @@
-// lib/db.ts
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '@prisma/client';
 
-/* eslint-disable no-var */
-// Tell TypeScript that `global.prisma` may exist
+// Avoid multiple instances during hot reloading in development
 declare global {
   var prisma: PrismaClient | undefined;
 }
-/* eslint-enable no-var */
 
-export const db =
-  global.prisma ??
-  new PrismaClient({
-    log: process.env.NODE_ENV === "development" ? ["query"] : [],
-  });
+export const db = global.prisma || new PrismaClient();
 
-// In development, reuse the client to avoid exhausting connections
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV !== 'production') {
   global.prisma = db;
 }
